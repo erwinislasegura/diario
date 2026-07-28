@@ -1,0 +1,2 @@
+<div class="stats"><article><span>Total noticias</span><b><?= $stats['posts'] ?></b></article><article><span>Publicadas</span><b><?= $stats['published'] ?></b></article><article><span>Categorías</span><b><?= $stats['categories'] ?></b></article></div><section class="admin-panel"><div class="panel-heading"><h2>Publicaciones recientes</h2><a class="primary-button" href="<?= url('/admin/posts/create') ?>">＋ Nueva noticia</a></div><?php require __DIR__.'/posts/table.php'; ?></section>
+

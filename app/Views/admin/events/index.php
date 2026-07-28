@@ -1,0 +1,1 @@
+<section class="admin-panel"><div class="panel-heading"><div><h2>Eventos de la agenda</h2><p>Crea y administra las publicaciones que aparecen en «Qué hacer · Agenda y eventos».</p></div><a class="primary-button" href="<?= url('/admin/events/create') ?>">＋ Nuevo evento</a></div><?php require __DIR__.'/../posts/table.php'; ?></section>
