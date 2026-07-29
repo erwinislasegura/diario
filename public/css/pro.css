@@ -239,3 +239,109 @@ small{color:var(--pa-red);font-size:9px;letter-spacing:.13em}
   .article-body{margin:0 -12px;padding:24px 18px;font-size:16px}
   .mobile-toolbar{height:calc(62px + env(safe-area-inset-bottom));background:var(--pa-blue-dark)}
 }
+
+/* Evolución contemporánea: menos institucional, más medio digital */
+:root{
+  --pa-serif:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --pa-sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+body{font-family:var(--pa-sans);letter-spacing:-.005em}
+.site-header{box-shadow:0 8px 30px rgba(9,45,98,.06)}
+.brandbar{height:82px}
+.brand img{height:68px}
+.brand-statement{font-weight:800}
+.send{position:relative;overflow:hidden;background:var(--pa-blue);font-weight:800}
+.send:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--pa-red)}
+.main-nav{background:var(--pa-blue-dark);border:0;color:#fff}
+.main-nav .shell{height:44px}
+.main-nav a,.main-nav.open a{color:#e7edf6;border-color:rgba(255,255,255,.09);font-weight:750}
+.main-nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.main-nav .nav-home{background:var(--pa-red)}
+.ticker{background:#f8fafc}
+
+.newsroom-label{font-weight:750}
+.cover-story{border-bottom:0;background:var(--pa-blue-dark)}
+.cover-story-media{position:relative}
+.cover-story-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 72%,rgba(6,29,66,.18))}
+.cover-story-copy{position:relative;background:var(--pa-blue-dark);color:#fff}
+.cover-story-copy:after{
+  content:"";position:absolute;right:0;bottom:0;width:74px;height:74px;
+  border-right:12px solid rgba(255,255,255,.05);border-bottom:12px solid rgba(255,255,255,.05);
+}
+.cover-story-copy h1{color:#fff;font-weight:820;letter-spacing:-.04em}
+.cover-story-copy p{color:#c8d4e5}
+.cover-story-copy .more{color:#fff}
+.cover-story-copy small{color:#ff9ca3}
+.cover-story:before{background:var(--pa-red)}
+.top-stories{border-top:3px solid var(--pa-red)}
+.top-stories h2{font-weight:780;letter-spacing:-.025em}
+.top-stories article{transition:background .2s ease,transform .2s ease}
+.top-stories article:hover{background:#f7f9fc;transform:translateX(3px)}
+.briefing{background:#f4f7fb;border:0;border-left:3px solid var(--pa-blue)}
+.briefing li{background:#fff}
+
+.editorial-heading{border:0;align-items:center}
+.editorial-heading>div{display:flex;align-items:baseline;gap:12px}
+.editorial-heading h2{font-weight:820;letter-spacing:-.04em}
+.editorial-heading small{position:relative;padding-left:18px}
+.editorial-heading small:before{content:"";position:absolute;left:0;top:50%;width:10px;height:3px;background:var(--pa-red)}
+.editorial-heading>a{padding:8px 10px;background:#eef3f9;font-weight:800}
+.editorial-heading>a:hover{background:var(--pa-blue);color:#fff}
+.section-tabs{border:0;gap:6px}
+.section-tabs a{border:0;background:#f0f3f7;font-weight:750}
+.section-tabs a:hover{background:var(--pa-blue);color:#fff}
+
+.latest-grid .news-card{position:relative;border:0;background:#fff;transition:transform .22s ease,box-shadow .22s ease}
+.latest-grid .news-card:before{content:"";position:absolute;z-index:2;left:0;top:0;width:26px;height:3px;background:var(--pa-red)}
+.latest-grid .news-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(9,45,98,.1)}
+.latest-grid .news-card-copy{padding:11px 8px 13px}
+.latest-grid .news-card h3{font-weight:780;letter-spacing:-.025em}
+.participate-panel{background:linear-gradient(145deg,#061d42,#0d3976)}
+.participate-panel h3{font-weight:820;letter-spacing:-.03em}
+
+.media-band{background:linear-gradient(120deg,#061a39 0,#092d62 68%,#103d7d 100%)}
+.media-feature article{transition:transform .2s ease}
+.media-feature article:hover{transform:translateY(-3px)}
+.media-feature h3{font-weight:780;letter-spacing:-.025em}
+.video-cover span{background:var(--pa-red)}
+.local-dashboard{background:linear-gradient(180deg,#fff,#f8fafc)}
+.community-feed article{transition:background .2s ease}
+.community-feed article:hover{background:#f1f5fa}
+.community-feed h3,.agenda-list h3,.guide-editorial h3{font-weight:780;letter-spacing:-.02em}
+.agenda-list time{background:#eef3f9;color:var(--pa-blue);border-left:3px solid var(--pa-red)}
+.regional-guide{background:#edf3fa}
+.guide-editorial article{transition:transform .2s ease}
+.guide-editorial article:hover{transform:translateY(-3px)}
+
+.page-head,.events-hero,.media-hero{background:linear-gradient(115deg,#061d42,#0d3976)}
+.page-head h1,.events-hero h1,.media-hero h1,.story-heading h1{font-weight:840;letter-spacing:-.045em}
+.category-lead{border:0;background:#f4f7fb}
+.category-lead h2{font-weight:820;letter-spacing:-.035em}
+.article-body{font-family:var(--pa-sans);line-height:1.75}
+.article-body>p:first-child{font-family:var(--pa-sans);font-weight:480}
+.article-body h2,.article-body h3{font-family:var(--pa-sans);font-weight:820;letter-spacing:-.03em}
+.story-summary{border:0;border-left:3px solid var(--pa-blue)}
+.contact-strip{background:linear-gradient(115deg,#092d62,#104487)}
+.contact-strip h2{font-weight:840;letter-spacing:-.04em}
+
+@media(max-width:650px){
+  .brandbar{height:58px}
+  .brand img{height:48px}
+  .main-nav.open{top:58px;background:var(--pa-blue-dark)}
+  .cover-story-media{height:205px}
+  .cover-story-copy{padding:15px 14px;margin:0 -1px}
+  .cover-story-copy h1{font-size:25px}
+  .top-stories{border-top-width:2px}
+  .briefing{border-left:0;border-top:3px solid var(--pa-blue)}
+  .editorial-heading{align-items:flex-end}
+  .editorial-heading>div{display:block}
+  .editorial-heading h2{font-size:23px}
+  .editorial-heading small{padding-left:14px}
+  .editorial-heading small:before{width:8px;height:2px}
+  .latest-grid .news-card{border-bottom:1px solid var(--pa-line)}
+  .latest-grid .news-card:hover{transform:none;box-shadow:none}
+  .latest-grid .news-card-copy{padding:8px 6px 8px 0}
+  .latest-grid .news-card:before{width:18px;height:2px}
+  .media-feature article:hover,.guide-editorial article:hover{transform:none}
+  .mobile-toolbar{background:linear-gradient(100deg,#061d42,#0d3976)}
+}
