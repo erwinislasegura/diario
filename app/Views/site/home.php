@@ -56,12 +56,20 @@ $latestPosts = array_slice($posts, 6, 16);
     <nav class="section-tabs" aria-label="Secciones principales">
         <?php foreach ($categories as $category): ?><a href="<?= category_url($category) ?>"><?= e($category['name']) ?></a><?php endforeach; ?>
     </nav>
-    <div class="latest-layout">
-        <div class="latest-grid"><?php foreach ($latestPosts as $post) require __DIR__ . '/../partials/card.php'; ?></div>
-        <aside class="participate-panel">
-            <span class="pulse-mark">⌁</span><small>PARTICIPACIÓN CIUDADANA</small><h3>¿Hay algo que debemos saber?</h3><p>Comparte una noticia, denuncia, actividad o historia de tu sector con nuestro equipo editorial.</p><a href="mailto:prensa@pulsoangelino.cl">Contactar a prensa →</a>
-        </aside>
+    <div class="modern-news-grid">
+        <?php foreach ($latestPosts as $post): ?>
+        <article class="modern-news-card">
+            <a class="modern-news-image" href="<?= url('/noticia/' . $post['slug']) ?>"><img src="<?= e(post_image($post['image'])) ?>" alt="<?= e($post['title']) ?>" loading="lazy"></a>
+            <div><small><?= e($post['category_name']) ?></small><h3><a href="<?= url('/noticia/' . $post['slug']) ?>"><?= e($post['title']) ?></a></h3><time datetime="<?= e($post['published_at']) ?>"><?= e(date_es($post['published_at'])) ?></time><a class="more" href="<?= url('/noticia/' . $post['slug']) ?>">Leer noticia →</a></div>
+        </article>
+        <?php endforeach; ?>
     </div>
+    <aside class="participate-strip">
+        <div><span>⌁</span><small>PARTICIPACIÓN CIUDADANA</small></div>
+        <h3>¿Hay algo que debemos saber?</h3>
+        <p>Comparte una noticia, denuncia, actividad o historia de tu sector.</p>
+        <a href="mailto:prensa@pulsoangelino.cl">Contactar a prensa →</a>
+    </aside>
 </section>
 
 <?php if ($videos): ?>
