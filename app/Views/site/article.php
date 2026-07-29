@@ -18,7 +18,7 @@ $readingMinutes = max(1, (int) ceil(str_word_count($plainBody) / 210));
                     <time datetime="<?= e($post['published_at']) ?>"><?= e(date_es($post['published_at'])) ?></time>
                 </div>
             </div>
-            <?php if ($isEvent): ?><aside class="event-fact"><span>Fecha</span><b><?= e(date('d', strtotime($post['published_at']))) ?></b><strong><?= e(date_es($post['published_at'])) ?></strong><a href="mailto:prensa@vecinoss.cl?subject=Consulta sobre <?= rawurlencode($post['title']) ?>">Consultar evento →</a></aside><?php endif; ?>
+            <?php if ($isEvent): ?><aside class="event-fact"><span>Fecha</span><b><?= e(date('d', strtotime($post['published_at']))) ?></b><strong><?= e(date_es($post['published_at'])) ?></strong><a href="mailto:prensa@pulsoangelino.cl?subject=Consulta sobre <?= rawurlencode($post['title']) ?>">Consultar evento →</a></aside><?php endif; ?>
         </div>
     </div>
 
@@ -26,7 +26,7 @@ $readingMinutes = max(1, (int) ceil(str_word_count($plainBody) / 210));
         <img class="article-image" src="<?= e(post_image($post['image'])) ?>" alt="<?= e($post['title']) ?>">
         <div class="story-media-shade" aria-hidden="true"></div>
         <span class="story-media-brand">V<span>SS</span></span>
-        <?php if ($isEvent): ?><span class="story-media-label">Provincia de San Antonio</span><?php endif; ?>
+        <?php if ($isEvent): ?><span class="story-media-label">Provincia de Biobío</span><?php endif; ?>
     </div>
 
     <div class="story-content shell">
@@ -40,7 +40,7 @@ $readingMinutes = max(1, (int) ceil(str_word_count($plainBody) / 210));
         <div class="article-body">
             <?= str_contains($post['body'], '<') ? $post['body'] : nl2br(e($post['body'])) ?>
             <?php if (!empty($post['tag_names'])): ?><div class="story-tags" aria-label="Temas"><?php foreach (explode(', ', $post['tag_names']) as $tag): ?><span>#<?= e($tag) ?></span><?php endforeach; ?></div><?php endif; ?>
-            <div class="story-end"><span></span><b>VecinoSS</b><p>Información local, cercana y útil para nuestra comunidad.</p></div>
+            <div class="story-end"><span></span><b>Pulso Angelino</b><p>Información local, cercana y útil para nuestra comunidad.</p></div>
         </div>
         <aside class="story-summary">
             <small><?= $isEvent ? 'INFORMACIÓN' : 'EN BREVE' ?></small>
@@ -50,7 +50,7 @@ $readingMinutes = max(1, (int) ceil(str_word_count($plainBody) / 210));
                 <div><dt>Publicado</dt><dd><?= e(date_es($post['published_at'])) ?></dd></div>
                 <div><dt>Lectura</dt><dd><?= $readingMinutes ?> min</dd></div>
             </dl>
-            <?php if ($isEvent): ?><a href="mailto:prensa@vecinoss.cl?subject=Consulta sobre <?= rawurlencode($post['title']) ?>">Consultar actividad →</a><?php else: ?><a href="mailto:prensa@vecinoss.cl?subject=Información relacionada con <?= rawurlencode($post['title']) ?>">Aportar información →</a><?php endif; ?>
+            <?php if ($isEvent): ?><a href="mailto:prensa@pulsoangelino.cl?subject=Consulta sobre <?= rawurlencode($post['title']) ?>">Consultar actividad →</a><?php else: ?><a href="mailto:prensa@pulsoangelino.cl?subject=Información relacionada con <?= rawurlencode($post['title']) ?>">Aportar información →</a><?php endif; ?>
         </aside>
     </div>
 </article>
