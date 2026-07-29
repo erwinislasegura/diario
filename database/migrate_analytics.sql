@@ -1,4 +1,4 @@
-USE vecinoss;
+USE pulsoangelino_pulsoweb;
 
 CREATE TABLE IF NOT EXISTS page_views (
   id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
