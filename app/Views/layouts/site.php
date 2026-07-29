@@ -6,6 +6,7 @@
     <meta name="description" content="<?= e($metaDescription ?? 'Noticias locales, actualidad y comunidad de la Provincia de Biobío.') ?>">
     <meta name="theme-color" content="#082b68">
     <link rel="stylesheet" href="<?= asset('css/app.css') ?>">
+    <link rel="stylesheet" href="<?= asset('css/pro.css') ?>">
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
