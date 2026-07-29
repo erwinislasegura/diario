@@ -6,7 +6,7 @@ final class SiteController extends Controller
 {
     public function home(): void
     {
-        $posts = Post::published(16);
+        $posts = Post::published(28);
         $featured = array_shift($posts);
         $categories = Category::topLevel();
         $categoryIds = [];
