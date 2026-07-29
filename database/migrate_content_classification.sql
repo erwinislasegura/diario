@@ -1,4 +1,4 @@
-USE vecinoss;
+USE pulsoangelino_pulsoweb;
 ALTER TABLE categories ADD COLUMN parent_id BIGINT UNSIGNED NULL AFTER description, ADD INDEX idx_categories_parent (parent_id), ADD CONSTRAINT fk_categories_parent FOREIGN KEY (parent_id) REFERENCES categories(id) ON DELETE SET NULL;
 CREATE TABLE tags (id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,name VARCHAR(80) NOT NULL,slug VARCHAR(100) NOT NULL UNIQUE) ENGINE=InnoDB;
 CREATE TABLE post_tags (post_id BIGINT UNSIGNED NOT NULL,tag_id BIGINT UNSIGNED NOT NULL,PRIMARY KEY(post_id,tag_id),CONSTRAINT fk_post_tags_post FOREIGN KEY(post_id) REFERENCES posts(id) ON DELETE CASCADE,CONSTRAINT fk_post_tags_tag FOREIGN KEY(tag_id) REFERENCES tags(id) ON DELETE CASCADE) ENGINE=InnoDB;
