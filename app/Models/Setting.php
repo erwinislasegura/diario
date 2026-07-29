@@ -10,7 +10,7 @@ final class Setting
     private const DEFAULTS = [
         'weather_enabled' => '1',
         'weather_title' => 'El tiempo en tu comuna',
-        'weather_fallback_name' => 'San Antonio',
+        'weather_fallback_name' => 'Los Ángeles',
         'weather_fallback_latitude' => '-33.5933',
         'weather_fallback_longitude' => '-71.6217',
     ];

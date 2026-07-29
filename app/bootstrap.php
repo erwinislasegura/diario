@@ -44,6 +44,15 @@ function url(string $path = ''): string
 }
 
 function asset(string $path): string { return url('/public/' . ltrim($path, '/')); }
+function category_url(array|string $category): string
+{
+    $slug = is_array($category) ? (string) ($category['slug'] ?? '') : $category;
+    return match ($slug) {
+        'vecinoss-tv' => url('/videos'),
+        'eventos' => url('/eventos'),
+        default => url('/categoria/' . $slug),
+    };
+}
 function e(mixed $value): string { return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8'); }
 function csrf_field(): string { return '<input type="hidden" name="_token" value="' . e(App\Core\Csrf::token()) . '">'; }
 function post_image(?string $image): string { return $image ? (str_starts_with($image, 'http') ? $image : asset($image)) : asset('images/placeholder.svg'); }
