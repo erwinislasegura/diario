@@ -1,0 +1,22 @@
+DirectoryIndex index.php
+Options -Indexes -MultiViews
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Impide el acceso web directo a código, configuración y scripts SQL.
+    RewriteRule ^(?:app|config|database)/ - [F,L,NC]
+
+    # Conserva archivos y carpetas públicas existentes.
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Envía cualquier URL amigable al enrutador de la aplicación.
+    # La sustitución relativa permite funcionar tanto en / como en /diario/.
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<FilesMatch "(^\.|\.sql$|composer\.(json|lock)$|README\.md$)">
+    Require all denied
+</FilesMatch>
