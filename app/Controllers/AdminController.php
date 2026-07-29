@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 namespace App\Controllers;
-use App\Core\{Auth,Controller,Csrf,Database}; use App\Models\{Category,Post,Setting,Video};
+use App\Core\{Auth,Controller,Csrf,Database}; use App\Models\{Analytics,Category,Post,Setting,Video};
 final class AdminController extends Controller
 {
     public function login(): void { if(Auth::check())$this->redirect('/admin'); $this->render('admin/login',['title'=>'Acceso editorial','error'=>null],'auth'); }
     public function authenticate(): void { Csrf::verify(); if(Auth::attempt(trim($_POST['email']??''),$_POST['password']??''))$this->redirect('/admin'); $this->render('admin/login',['title'=>'Acceso editorial','error'=>'Correo o contraseña incorrectos.'],'auth'); }
     public function logout(): void { Csrf::verify(); Auth::logout(); $this->redirect('/'); }
-    public function dashboard(): void { Auth::requireLogin(); $db=Database::connection(); $stats=['posts'=>(int)$db->query('SELECT COUNT(*) FROM posts')->fetchColumn(),'published'=>(int)$db->query("SELECT COUNT(*) FROM posts WHERE status='published'")->fetchColumn(),'categories'=>(int)$db->query('SELECT COUNT(*) FROM categories')->fetchColumn()]; $this->render('admin/dashboard',['title'=>'Panel editorial','stats'=>$stats,'posts'=>array_slice(Post::allAdmin(),0,6)],'admin'); }
+    public function dashboard(): void { Auth::requireLogin(); $db=Database::connection(); $stats=['posts'=>(int)$db->query('SELECT COUNT(*) FROM posts')->fetchColumn(),'published'=>(int)$db->query("SELECT COUNT(*) FROM posts WHERE status='published'")->fetchColumn(),'categories'=>(int)$db->query('SELECT COUNT(*) FROM categories')->fetchColumn()]; $this->render('admin/dashboard',['title'=>'Panel editorial','stats'=>$stats,'analytics'=>Analytics::dashboard(),'posts'=>array_slice(Post::allAdmin(),0,6)],'admin'); }
     public function posts(): void { Auth::requireLogin(); $this->render('admin/posts/index',['title'=>'Noticias','posts'=>Post::allAdmin()],'admin'); }
     public function events(): void { Auth::requireLogin(); $parent=Category::findBySlug('eventos'); $this->render('admin/events/index',['title'=>'Agenda y eventos','posts'=>$parent?Post::allAdmin((int)$parent['id']):[],'resourcePath'=>'/admin/events'],'admin'); }
     public function createEvent(): void { Auth::requireLogin(); $this->eventForm(null); }
