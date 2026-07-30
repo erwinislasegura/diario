@@ -3,6 +3,7 @@
   <div class="shell brandbar">
     <button class="menu-button" aria-label="Abrir menú" aria-controls="main-menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <a href="<?= url('/') ?>" class="brand" aria-label="Pulso Angelino, ir al inicio"><img src="<?= url('/logo/logo.png') ?>" alt="Pulso Angelino"></a>
+    <a class="mobile-search-trigger" href="<?= url('/buscar') ?>" aria-label="Buscar noticias"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg></a>
     <div class="brand-statement"><b>NOTICIAS</b><span></span><b>COMUNIDAD</b><span></span><b>REGIÓN</b><small>La información que mueve a Los Ángeles</small></div>
     <a class="send" href="mailto:prensa@pulsoangelino.cl"><span class="send-full">Envía tu noticia</span><span class="send-short">Enviar</span><b>→</b></a>
   </div>
