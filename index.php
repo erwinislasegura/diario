@@ -4,6 +4,7 @@ declare(strict_types=1);
 require __DIR__ . '/app/bootstrap.php';
 
 use App\Controllers\AdminController;
+use App\Controllers\ApiController;
 use App\Controllers\SiteController;
 
 $requestPath = rawurldecode((string) parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
@@ -17,8 +18,10 @@ $path = $path === '//' ? '/' : $path;
 $method = $_SERVER['REQUEST_METHOD'];
 $site = new SiteController();
 $admin = new AdminController();
+$api = new ApiController();
 
-if ($path === '/' && $method === 'GET') $site->home();
+if ($path === '/api/v1/noticias' && $method === 'POST') $api->storeNews();
+elseif ($path === '/' && $method === 'GET') $site->home();
 elseif ($path === '/admin/login' && $method === 'GET') $admin->login();
 elseif ($path === '/admin/login' && $method === 'POST') $admin->authenticate();
 elseif ($path === '/admin/logout' && $method === 'POST') $admin->logout();

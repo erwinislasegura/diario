@@ -30,6 +30,9 @@ CREATE TABLE posts (
   excerpt VARCHAR(350),
   body LONGTEXT NOT NULL,
   image VARCHAR(500),
+  source_name VARCHAR(180),
+  source_url VARCHAR(1000),
+  source_hash CHAR(64),
   status ENUM('draft','published') NOT NULL DEFAULT 'draft',
   featured TINYINT(1) NOT NULL DEFAULT 0,
   published_at DATETIME NOT NULL,
@@ -37,8 +40,24 @@ CREATE TABLE posts (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   INDEX idx_posts_public (status, published_at),
   INDEX idx_posts_category (category_id),
+  UNIQUE KEY uq_posts_source_hash (source_hash),
   CONSTRAINT fk_posts_category FOREIGN KEY (category_id) REFERENCES categories(id),
   CONSTRAINT fk_posts_user FOREIGN KEY (user_id) REFERENCES users(id)
+) ENGINE=InnoDB;
+
+CREATE TABLE automation_publications (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  idempotency_key VARCHAR(128) NOT NULL UNIQUE,
+  request_id CHAR(36) NOT NULL UNIQUE,
+  post_id BIGINT UNSIGNED NULL,
+  source_url VARCHAR(1000) NULL,
+  status ENUM('processing','published','failed') NOT NULL DEFAULT 'processing',
+  http_status SMALLINT UNSIGNED NULL,
+  error_message VARCHAR(500) NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  completed_at TIMESTAMP NULL,
+  INDEX idx_automation_status_created (status,created_at),
+  CONSTRAINT fk_automation_post FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE tags (

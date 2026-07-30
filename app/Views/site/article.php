@@ -39,6 +39,7 @@ $readingMinutes = max(1, (int) ceil(str_word_count($plainBody) / 210));
         </aside>
         <div class="article-body">
             <?= str_contains($post['body'], '<') ? $post['body'] : nl2br(e($post['body'])) ?>
+            <?php if (!empty($post['source_url'])): ?><p class="story-source"><strong>Fuente original:</strong> <a href="<?= e($post['source_url']) ?>" target="_blank" rel="noopener noreferrer"><?= e($post['source_name'] ?: parse_url($post['source_url'], PHP_URL_HOST)) ?></a></p><?php endif; ?>
             <?php if (!empty($post['tag_names'])): ?><div class="story-tags" aria-label="Temas"><?php foreach (explode(', ', $post['tag_names']) as $tag): ?><span>#<?= e($tag) ?></span><?php endforeach; ?></div><?php endif; ?>
             <div class="story-end"><span></span><b>Pulso Angelino</b><p>Información local, cercana y útil para nuestra comunidad.</p></div>
         </div>
