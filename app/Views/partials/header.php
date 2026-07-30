@@ -9,6 +9,7 @@
   <nav class="main-nav" id="main-menu" aria-label="Navegación principal"><div class="shell">
     <a class="nav-home" href="<?= url('/') ?>" aria-label="Inicio"><span>Inicio</span></a>
     <?php foreach (array_slice($categories ?? App\Models\Category::topLevel(), 0, 6) as $navCategory): ?><a href="<?= category_url($navCategory) ?>"><?= e($navCategory['name']) ?></a><?php endforeach; ?>
+    <form class="header-search" action="<?= url('/buscar') ?>" method="get" role="search"><label class="sr-only" for="header-search-input">Buscar noticias</label><input id="header-search-input" type="search" name="q" value="<?= e($query ?? '') ?>" placeholder="Buscar noticias" maxlength="100" required><button type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button></form>
   </div></nav>
 </header>
 <?php $tickerPosts = $tickerPosts ?? App\Models\Post::publishedToday(); ?>
