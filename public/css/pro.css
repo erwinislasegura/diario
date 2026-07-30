@@ -346,8 +346,12 @@ body{font-family:var(--pa-sans);letter-spacing:-.005em}
 
 .page-head,.events-hero,.media-hero{background:linear-gradient(115deg,#061d42,#0d3976)}
 .page-head h1,.events-hero h1,.media-hero h1,.story-heading h1{font-weight:840;letter-spacing:-.045em}
-.category-lead{border:0;background:#f4f7fb}
-.category-lead h2{font-weight:820;letter-spacing:-.035em}
+.category-lead{border:0;background:#f4f7fb;color:var(--pa-ink)}
+.category-lead h2{font-weight:820;letter-spacing:-.035em;color:var(--pa-ink)}
+.category-lead h2 a{color:var(--pa-ink)}
+.category-lead p{color:var(--pa-muted)}
+.category-lead time{color:#7c8797}
+.category-lead .more{color:var(--pa-blue)}
 .article-body{font-family:var(--pa-sans);line-height:1.75}
 .article-body>p:first-child{font-family:var(--pa-sans);font-weight:480}
 .article-body h2,.article-body h3{font-family:var(--pa-sans);font-weight:820;letter-spacing:-.03em}
