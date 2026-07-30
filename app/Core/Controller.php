@@ -7,6 +7,13 @@ abstract class Controller
 {
     protected function render(string $view, array $data = [], string $layout = 'site'): void
     {
+        if ($layout === 'admin') {
+            header('Cache-Control: no-store, no-cache, must-revalidate, private');
+            header('Pragma: no-cache');
+            header('Expires: 0');
+            header('Vary: Cookie');
+        }
+
         extract($data, EXTR_SKIP);
         $viewFile = dirname(__DIR__) . '/Views/' . $view . '.php';
         if (!is_file($viewFile)) {
