@@ -7,7 +7,9 @@ $maxDaily = max(1, ...array_column($analytics['daily'], 'views'));
 </section>
 
 <div class="stats editorial-stats">
-    <article><span>Noticias</span><b><?= number_format($stats['posts'], 0, ',', '.') ?></b><small><?= $stats['published'] ?> publicadas</small></article>
+    <article><span>Total noticias</span><b><?= number_format($stats['posts'], 0, ',', '.') ?></b><small>Publicadas y borradores</small></article>
+    <article><span>Publicadas</span><b><?= number_format($stats['published'], 0, ',', '.') ?></b><small>Visibles en el portal</small></article>
+    <article><span>Borradores</span><b><?= number_format($stats['drafts'], 0, ',', '.') ?></b><small>Pendientes de publicación</small></article>
     <article><span>Visitas totales</span><b><?= number_format($analytics['total'], 0, ',', '.') ?></b><small>Desde la activación</small></article>
     <article><span>Visitas hoy</span><b><?= number_format($analytics['today'], 0, ',', '.') ?></b><small><?= $analytics['unique_today'] ?> visitantes únicos</small></article>
     <article><span>Últimos 7 días</span><b><?= number_format($analytics['last_7_days'], 0, ',', '.') ?></b><small>Vistas acumuladas</small></article>
